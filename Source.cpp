@@ -5,6 +5,7 @@ const int N = 1000;
 
 void inputArray(int* x, int n);
 void outArray(int* x, int n);
+void inputRandArray(int* x, int n);
 
 
 int main() {
@@ -16,8 +17,10 @@ int main() {
 		cout << "n <= 0 || n > N";
 		return 1;
 	}
-	inputArray(a, n);
+	//inputArray(a, n);
+	inputRandArray(a, n);
 	outArray(a, n);
+
 	return 0;
 }
 
@@ -35,3 +38,9 @@ void outArray(int* x, int n) {
 	}
 }
 
+void inputRandArray(int* x, int n) {
+	srand(time(0));
+	for (int i = 0; i < n; i++) {
+		x[i] = rand() % 100;
+	}
+}
