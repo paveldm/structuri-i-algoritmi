@@ -1,16 +1,15 @@
 ﻿#include <iostream>
 using namespace std;
 
-int main() {
-	setlocale(LC_ALL, "ru");
-	int n;
-	cout << "Введите количество чисел" << "\n";
-	cin >> n;
-	int *a = new int[n], i, sum = 0, cnt = 0, x = 0;
-	cout << "Введите числа" << "\n";
-	for (i = 0; i < n; i++) {
+const int n = 6;
+void inputArray(int* a) {
+	cout << "Введите 6 чисел" << "\n";
+	for (int i = 0; i < n; i++) {
 		cin >> a[i];
 	}
+}
+void func(int* a, int cnt, int x, int sum) {
+	int i;
 	for (i = 0; i < n; i++) {
 		x = a[i];
 		while (x != 0) {
@@ -33,6 +32,13 @@ int main() {
 		}
 		cnt = 0;
 		sum = 0;
-
 	}
+}
+
+int main() {
+	setlocale(LC_ALL, "ru");
+
+	int a[n], i, sum = 0, cnt = 0, x = 0;
+	inputArray(a);
+	func(a, cnt, x, sum);
 }

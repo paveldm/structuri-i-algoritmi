@@ -16,7 +16,7 @@ void eraseAllIf(int* x, int& n);
 
 int main() {
 	setlocale(LC_ALL, "ru");
-	int a[N], n;
+	int a[N], n, p = 1;
 	cout << "¬ведите  n = ";
 	cin >> n;
 	if (n <= 0 || n > N) {
@@ -26,8 +26,8 @@ int main() {
 	inputArray(a, n);
 	//inputRandArray(a, n);
 	outArray(a, n);
+	
 	/*
-	int p = 2;
 	if (n > N || p > n) { cout << "No insert"; return 2; }
 	insert(a, n, p, 123);
 	p = 0;
@@ -37,16 +37,17 @@ int main() {
 	if (n > N || p > n) { cout << "No insert"; return 2; }
 	insert(a, n, p, 123);
 	outArray(a, n);
-
+	*/
+	
 	p = 2;
 	erase(a, n, p);
 	erase(a, n, 0);
-	erase(a, n, n - 1);
+	erase(a, n, n + 1);
 	outArray(a, n);
-	*/
+	
 
-	eraseAllIf(a, n);
-	outArray(a, n);
+	//eraseAllIf(a, n);
+	//outArray(a, n);
 	return 0;
 }
 
@@ -65,6 +66,7 @@ void erase(int* x, int& n, int pos) {
 	for (int i = pos; i < n - 1; i++) {
 		x[i] = x[i + 1];
 	}
+	--n;
 }
 void insert(int* x, int& n, int pos, int value) {
 	//сдвиг вправо части массива (до pos)
@@ -88,6 +90,7 @@ void outArray(int* x, int n) {
 	for (int i = 0; i < n; i++) {
 		cout << x[i] << ' ';
 	}
+	cout << "\n";
 }
 
 void inputRandArray(int* x, int n) {
