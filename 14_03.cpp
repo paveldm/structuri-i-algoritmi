@@ -15,9 +15,9 @@ int main() {
 					{0,0,0,0}
 				};
 	int nx = n;
+	outDiagonal(x, nx, m);
 	delRows(x, nx, m);
 	outArray2(x, nx, m);
-	outDiagonal(x, nx, m);
 }
 void outDiagonal(int x[][m], int n, int m) {
 	for (int i = 0; i < n; i++) {
