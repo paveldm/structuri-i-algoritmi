@@ -1,10 +1,13 @@
 #include <iostream>
 using namespace std;
 const int n = 4, m = 4;
+
 //результат true, если массив из нулей
 bool nullRow(int* r, int m);
+
 //удаление строки из нулей
 void delRows(int x[][m], int &n, int m);
+
 //вывод двумерного массива
 void outArray2(int x[][m], int n, int m);
 void outDiagonal(int x[][m], int n, int m);

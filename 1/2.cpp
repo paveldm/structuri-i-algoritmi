@@ -1,13 +1,17 @@
 #include <iostream>
 using namespace std;
 
-const int N = 1000;
+//Предусловие.  a - массив, 0 <n<= N - размер массива (целое число) 
+//Постусловие. Заполненный массив n
 void inputArray(int* a, int n) {
 	cout << "Введите " << n << " чисел" << "\n";
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
 	}
 }
+
+//Предусловие. Заполненный массив n, элементы массива - целые числа
+//Постусловие. Измененный массив n из целых чисел
 void func(int* a, int cnt, int x, int sum, int n, int p) {
 	int i;
 	for (i = 0; i < n; i++) {
@@ -31,6 +35,9 @@ void func(int* a, int cnt, int x, int sum, int n, int p) {
 		sum = 0;
 	}
 }
+
+//Предусловие. Измененный массив n из целых чисел
+//Постусловие. Массив из n+1 элементов
 void insert(int* a, int& n, int p) {
 	for (int i = n; i > p; i--) {
 		a[i] = a[i - 1];
@@ -39,6 +46,8 @@ void insert(int* a, int& n, int p) {
 	n++;
 }
 
+//Предусловие. Массив из n+1 элементов
+//Постусловие. Вывод на экран элементов массива
 void outArray(int* a, int n) {
 	for (int i = 0; i < n; i++) {
 		cout << a[i] << ' ';
@@ -48,15 +57,16 @@ void outArray(int* a, int n) {
 
 int main() {
 	setlocale(LC_ALL, "ru");
-	int n;
-	int a[N], i, p = 0, sum = 0, cnt = 0, x = 0;
+	int n, i, p = 0, sum = 0, cnt = 0, x = 0;
 
 	cout << "Введите  n = ";
 	cin >> n;
+	int* a = new int[n];
+
 	inputArray(a, n);
 	func(a, cnt, x, sum, n, p);
-	outArray(a, n);
-
+	
+	//Проверка равенства цифрового корня числа и 7
 	for (int i = 0; i < n; i++) {
 		if (a[i] == 7) {
 			p = i;

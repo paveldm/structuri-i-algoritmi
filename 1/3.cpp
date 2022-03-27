@@ -1,16 +1,21 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-const int N = 1000;
-void inputArray(int* a, int n) {
+//Предусловие.  a - массив, 0 <n<= N - размер массива (целое число) 
+//Постусловие. Заполненный массив a
+vector<int> inputArray(int n) {
+	vector<int> a;
 	cout << "Введите " << n << " чисел" << "\n";
+	int L;
 	for (int i = 0; i < n; i++) {
-		cin >> a[i];
+		cin >> L;
+		a.push_back(L);
 	}
+	return a;
 }
-void func(int* a, int cnt, int x, int sum, int n) {
-	int i;
-	for (i = 0; i < n; i++) {
+int func(vector<int> a, int cnt, int x, int sum, int n, int pos) {
+	for (int i = 0; i < a.size(); i++) {
 		x = a[i];
 		while (x != 0) {
 			x /= 10;
@@ -30,40 +35,27 @@ void func(int* a, int cnt, int x, int sum, int n) {
 		cnt = 0;
 		sum = 0;
 	}
-}
-
-void erase(int* x, int& n, int pos) {
-	//сдвиг влево части массива от (pos)
-	for (int i = pos; i < n - 1; i++) {
-		x[i] = x[i + 1];
+	for (int i = 0; i < n; i++) {
+		if (a[i] == 7) {
+			pos = i;
+			for (int i = pos; i < n - 1; i++) {
+				a[i] = a[i + 1];
+			}
+			--n;
+		}
 	}
-	--n;
-}
-
-void outArray(int* a, int n) {
 	for (int i = 0; i < n; i++) {
 		cout << a[i] << ' ';
 	}
-	cout << "\n";
+	return 0;
 }
-
 int main() {
 	setlocale(LC_ALL, "ru");
 	int n;
-	int a[N], i, p = 0, sum = 0, cnt = 0, x = 0;
-
+	int p = 0, sum = 0, cnt = 0, x = 0;
 	cout << "Введите  n = ";
 	cin >> n;
-	inputArray(a, n);
-	func(a, cnt, x, sum, n);
-
-	for (int i = 0; i < n; i++) {
-		if (a[i] == 7) {
-			p = i;
-			erase(a, n, p);
-		}
-	}
-
-
-	outArray(a, n);
+	vector<int> l;
+	l = inputArray(n);
+	func(l, cnt, x, sum, n, p);
 }
