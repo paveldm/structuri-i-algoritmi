@@ -15,7 +15,7 @@ int main() {
 	while (str[i] != '\0') {
 		i++;
 	}
-	puts("length(str)="); cout << i;
+	puts("length(str)="); cout << i << "\n";
 	puts(str);
 	puts("¬ведите текст");
 	gets_s(str);
