@@ -1,4 +1,4 @@
-#include "4_static.h"
+#include "4.h"
 const int N = 100;
 
 struct Position {
@@ -37,11 +37,11 @@ int main() {
 	sort(emp, x);
 	output_pers(emp, x);
 	int old_pos, new_pos;
-	cout << "¬ведите код старой и новой должности: "; cin >> old_pos >> new_pos;
+	cout << "\n¬ведите код старой и новой должности: "; cin >> old_pos >> new_pos;
 	replace_pos(emp, x, old_pos, new_pos);
 	output_pers(emp, x);
 	int del_pos, size_emp2 = 0;
-	cout << "¬ведите код должности, сотрудников которой нужно удалить: "; cin >> del_pos;
+	cout << "¬ведите код должности, сотрудников которой нужно удалить (от 10 до 14): "; cin >> del_pos;
 	del_pers(emp, emp2, x, del_pos, size_emp2);
 	output_pers(emp2, size_emp2 + 1);
 }

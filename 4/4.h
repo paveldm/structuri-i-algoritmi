@@ -1,10 +1,14 @@
-#ifndef _4_STATIC_H
-#define _4_STATIC_H
+#ifndef _4_H
+#define _4_H
 #include <iostream>
 #include <string>
 #include <clocale>
 #include <Windows.h>
 using namespace std;
+
+struct Date {
+	int d, m, y;
+};
 
 struct Employee {
 	int id;
@@ -12,17 +16,16 @@ struct Employee {
 	string name;
 	string o;
 	int pos;
-	int date;
+	Date date;
 };
-
 
 void input_pers(Employee *a, int x) {
 	for (int i = 0; i < x; i++) {
 		cout << "Введите данные " << i + 1 << "-го сотрудника:" << "\n";
 		cout << "Табельный номер: "; cin >> a[i].id;
 		cout << "Фамилия и инициалы: "; cin >> a[i].fam >> a[i].name >> a[i].o;
-		cout << "Код занимаемой должности: "; cin >> a[i].pos;
-		cout << "Дата поступления на работу: "; cin >> a[i].date;
+		cout << "Код занимаемой должности (от 10 до 14): "; cin >> a[i].pos;
+		cout << "Дата поступления на работу (в формате: день мессяц год): "; cin >> a[i].date.d >> a[i].date.m >> a[i].date.y;
 		cout << "\n";
 	}
 }
@@ -32,7 +35,7 @@ void output_pers(Employee *emp, int x) {
 		cout << "Фамилия и инициалы: " << emp[i].fam << " " << emp[i].name << " " << emp[i].o << "\n";
 		cout << "Табельный номер: " << emp[i].id << "\n";
 		cout << "Код занимаемой должности: " << emp[i].pos << "\n";
-		cout << "Дата поступления на работу: " << emp[i].date << "\n";
+		cout << "Дата поступления на работу: " << emp[i].date.d << "." << emp[i].date.m << "." << emp[i].date.y;
 		cout << "\n";
 	}
 }
@@ -55,8 +58,8 @@ void add_pers(Employee *a, int x) {
 	cout << "Введите данные сотрудника:" << "\n";
 	cout << "Табельный номер: "; cin >> a[x].id;
 	cout << "Фамилия и инициалы: "; cin >> a[x].fam >> a[x].name >> a[x].o;
-	cout << "Код занимаемой должности: "; cin >> a[x].pos;
-	cout << "Дата поступления на работу: "; cin >> a[x].date;
+	cout << "Код занимаемой должности (от 10 до 14): "; cin >> a[x].pos;
+	cout << "Дата поступления на работу (в формате: день мессяц год): "; cin >> a[x].date.d >> a[x].date.m >> a[x].date.y;
 	cout << "\n";
 	cout << "Размещение записи после последней с такой же должностью" << "\n";
 }
