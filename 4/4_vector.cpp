@@ -1,4 +1,4 @@
-#include "4_dynamic.h"
+#include "4_vector.h"
 const int N = 100;
 
 struct Position {
@@ -33,15 +33,15 @@ int main() {
 	cin >> x;
 	emp = input_pers(x);
 	cout << "\n";
-	add_pers(emp, x);
-	sort(emp, x);
+	//add_pers(emp, x);
+	//sort(emp, x);
 	output_pers(emp, x);
-	int old_pos, new_pos;
-	cout << "¬ведите код старой и новой должности: "; cin >> old_pos >> new_pos;
-	replace_pos(emp, x, old_pos, new_pos);
-	output_pers(emp, x);
-	int del_pos, size_emp2 = 0;
-	cout << "¬ведите код должности, сотрудников которой нужно удалить: "; cin >> del_pos;
-	del_pers(emp, emp2, x, del_pos, size_emp2);
-	output_pers(emp2, size_emp2 + 1);
+	//int old_pos, new_pos;
+	//cout << "¬ведите код старой и новой должности: "; cin >> old_pos >> new_pos;
+	//replace_pos(emp, x, old_pos, new_pos);
+	//output_pers(emp, x);
+	//int del_pos, size_emp2 = 0;
+	//cout << "¬ведите код должности, сотрудников которой нужно удалить: "; cin >> del_pos;
+	//del_pers(emp, emp2, x, del_pos, size_emp2);
+	//output_pers(emp2, size_emp2 + 1);
 }
